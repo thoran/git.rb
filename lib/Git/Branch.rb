@@ -62,7 +62,7 @@ module Git
         result = `#{command}`.split("\n").collect do |branch|
           if @switches.include?('--remote')
             branch_parts = branch.split('/')
-            remote, branch_name = branch_parts.first.sub('*', '').strip, branch_parts.all_but_first
+            remote, branch_name = branch_parts.first.sub('*', '').strip, branch_parts.all_but_first.join('/')
             new(branch_name, remote: remote)
           else
             branch_name = branch.sub('*', '').strip
@@ -98,7 +98,11 @@ module Git
     end
 
     def to_s
-      @name
+      if @remote
+        @remote + '/' + @name
+      else
+        @name
+      end
     end
 
     def method_missing(method_name, *args, &block)
