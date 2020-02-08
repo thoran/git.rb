@@ -2,7 +2,7 @@
 # Git::Blame
 
 # 20161115
-# 0.3.0
+# 0.4.0
 
 require 'Array/all_but_first'
 require 'Array/all_but_last'
@@ -20,8 +20,11 @@ module Git
 
       end # class << self
 
-      def initialize(porcelain_output)
+      attr_reader :line_number
+
+      def initialize(porcelain_output, line_number = nil)
         @porcelain_output = porcelain_output
+        @line_number = line_number
       end
 
       def parse
@@ -40,6 +43,10 @@ module Git
 
       def previous_commit_hash
         @previous.split.first
+      end
+
+      def code
+        lines.last
       end
 
       private
@@ -73,21 +80,24 @@ module Git
       entries = []
       git_blame_output = `#{command_string}`
       git_blame_array = git_blame_output.split("\n")
-      i = 0
+      line_number = 0
+      i = -1
       until i >= git_blame_array.size - 1
         until git_blame_array[i].split.first == 'filename'
-          porcelain_entry_string << git_blame_array[i]
+          porcelain_entry_string << git_blame_array[i += 1]
           porcelain_entry_string << "\n"
-          i += 1
         end
         porcelain_entry_string << git_blame_array[i += 1]
         porcelain_entry_string << "\n"
-        entries << PorcelainEntry.new(porcelain_entry_string).parse
+        entries << PorcelainEntry.new(porcelain_entry_string, line_number += 1).parse
         line_count = 0
         porcelain_entry_string = ''
-        i += 1
       end
       entries
+    end
+
+    def find(line_number)
+      entries.detect{|entry| entry.line_number == line_number}
     end
 
   end
