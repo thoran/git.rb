@@ -2,9 +2,10 @@
 # Git::Blame
 
 # 20161115
-# 0.1.0
+# 0.2.0
 
 require 'Array/all_but_first'
+require 'Array/all_but_last'
 
 module Git
   class Blame
@@ -24,7 +25,7 @@ module Git
       end
 
       def parse
-        lines_sans_hash.each do |line|
+        lines_with_keys.each do |line|
           variable_name = line.split.first.tr('-','_')
           value = line.split.all_but_first.join(' ')
           instance_variable_set("@#{variable_name}", value)
@@ -37,25 +38,33 @@ module Git
         lines.first.split.first
       end
 
+      def previous_commit_hash
+        @previous.split.first
+      end
+
       private
 
       def lines
         @lines ||= @porcelain_output.split("\n")
       end
 
-      def lines_sans_hash
-        @lines_sans_hash ||= lines.all_but_first
+      def lines_with_keys
+        @lines_with_keys ||= lines.all_but_first.all_but_last
       end
 
     end # class PorcelainEntry
 
-    def initialize(filename, line_number)
+    def initialize(filename, line_number = nil)
       @filename = filename
       @line_number = line_number
     end
 
     def command_string
-      "git blame -L #{@line_number},#{@line_number} #{@filename} --line-porcelain"
+      if @line_number
+        "git --no-pager blame -L #{@line_number},#{@line_number} #{@filename} --line-porcelain"
+      else
+        "git --no-pager blame #{@filename} --line-porcelain"
+      end
     end
 
     def entries
