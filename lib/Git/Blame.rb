@@ -1,9 +1,6 @@
 # Git/Blame.rb
 # Git::Blame
 
-# 20161115
-# 0.4.0
-
 require 'Array/all_but_first'
 require 'Array/all_but_last'
 

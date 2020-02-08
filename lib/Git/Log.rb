@@ -1,7 +1,5 @@
+# Git/Log.rb
 # Git::Log
-
-# 20130304
-# 0.0.0
 
 require 'Ordinal/Array'
 
