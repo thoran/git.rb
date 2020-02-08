@@ -2,7 +2,7 @@
 # Git
 
 # 20171120
-# 0.6.1
+# 0.7.0
 
 require_relative 'Git/Blame'
 require_relative 'Git/Branch'

@@ -6,7 +6,13 @@
 # Git::Branch.local, Git::Branch.all
 # => [<Git::Branch @name='master'>, ...]
 #
-# Git::Branch.remote
+# Git::Branch.remote.all
+# => [<Git::Branch @name='master'>, ...]
+#
+# Git::Branch.merged.all
+# => [<Git::Branch @name='master'>, ...]
+#
+# Git::Branch.remote.merged.all
 # => [<Git::Branch @name='master'>, ...]
 #
 # Git::Branch.current
@@ -18,18 +24,25 @@
 module Git
   class Branch
 
+    @switches = []
+
     class << self
 
-      def local
-        `git branch`.split("\n").collect do |branch|
-          branch_name = branch.sub('*', '').strip
-          new(branch_name)
-        end
-      end
-      alias_method :all, :local
+      def local; end
 
       def remote
-        `git branch --remote`.split("\n").collect do |branch|
+        @switches << '--remote'
+        self
+      end
+
+      def merged
+        @switches << '--merged'
+        self
+      end
+
+      def all
+        command = ['git branch', @switches.join(' ')].join(' ').strip
+        `#{command}`.split("\n").collect do |branch|
           branch_name = branch.sub('*', '').strip
           new(branch_name)
         end
@@ -39,6 +52,7 @@ module Git
         branch_name = `git branch`.split("\n").detect{|branch| branch =~ /\*/}.sub('*', '').strip
         new(branch_name)
       end
+      alias_method :head, :current
 
     end # class << self
 
@@ -54,4 +68,3 @@ module Git
 
   end
 end
-
