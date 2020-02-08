@@ -18,15 +18,31 @@ module Git
     class << self
 
       def all
-        command = ['git remote --verbose'].join(' ')
+        command = 'git remote --verbose'
         `#{command}`.split("\n").collect do |remote|
           new_from_command_output(remote)
         end.uniq{|remote| remote.name}
       end
 
-      def exist?(remote_name)
+      def find(remote_name)
         all.detect{|remote| remote.name == remote_name}
       end
+
+      def add(remote_name, remote_url)
+        command = ['git remote add', remote_name, remote_url].join(' ')
+        system command
+      end
+
+      def remove(remote_name, remote_url)
+        command = ['git remote remove', remote_name].join(' ')
+        system command
+      end
+
+      def exist?(remote_name)
+        !!find(remote_name)
+      end
+
+      private
 
       def new_from_command_output(remote)
         name, url = remote.split
@@ -42,6 +58,11 @@ module Git
       @name = name
       @url = url
     end
+
+    def remove
+      self.class.remove(@name, @url)
+    end
+    alias_method :delete, :remove
 
     def to_s
       "#{@name} #{@url}"
