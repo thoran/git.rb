@@ -2,7 +2,7 @@
 # Git::Blame
 
 # 20161115
-# 0.2.0
+# 0.3.0
 
 require 'Array/all_but_first'
 require 'Array/all_but_last'
@@ -71,15 +71,21 @@ module Git
       line_count = 0
       porcelain_entry_string = ''
       entries = []
-      `#{command_string}`.each_line do |porcelain_line|
-        line_count +=1
-        unless line_count.modulo(13).zero?
-          porcelain_entry_string << porcelain_line
-        else
-          entries << PorcelainEntry.new(porcelain_entry_string).parse
-          line_count = 0
-          porcelain_entry_string = ''
+      git_blame_output = `#{command_string}`
+      git_blame_array = git_blame_output.split("\n")
+      i = 0
+      until i >= git_blame_array.size - 1
+        until git_blame_array[i].split.first == 'filename'
+          porcelain_entry_string << git_blame_array[i]
+          porcelain_entry_string << "\n"
+          i += 1
         end
+        porcelain_entry_string << git_blame_array[i += 1]
+        porcelain_entry_string << "\n"
+        entries << PorcelainEntry.new(porcelain_entry_string).parse
+        line_count = 0
+        porcelain_entry_string = ''
+        i += 1
       end
       entries
     end
