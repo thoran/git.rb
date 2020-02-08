@@ -91,9 +91,9 @@ module Git
 
     def merged?
       if @remote
-        self.class.remote.merged.all.include?(@remote + '/' + @name)
+        self.class.remote.merged.all.collect{|branch| branch.name}.include?(@remote + '/' + @name)
       else
-        self.class.merged.all.include?(@name)
+        self.class.merged.all.collect{|branch| branch.name}.include?(@name)
       end
     end
 
