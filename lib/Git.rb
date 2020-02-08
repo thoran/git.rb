@@ -2,7 +2,7 @@
 # Git
 
 # 20200124
-# 0.9.0
+# 0.9.1
 
 require_relative 'Git/Blame'
 require_relative 'Git/Branch'
