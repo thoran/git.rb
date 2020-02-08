@@ -1,9 +1,10 @@
 # Git.rb
 # Git
 
-# 20171121
-# 0.8.5
+# 20200124
+# 0.9.0
 
 require_relative 'Git/Blame'
 require_relative 'Git/Branch'
 require_relative 'Git/Log'
+require_relative 'Git/Remote'
