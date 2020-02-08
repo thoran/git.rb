@@ -3,7 +3,10 @@
 
 # Examples:
 #
-# Git::Branch.all
+# Git::Branch.local, Git::Branch.all
+# => [<Git::Branch @name='master'>, ...]
+#
+# Git::Branch.remote
 # => [<Git::Branch @name='master'>, ...]
 #
 # Git::Branch.current
@@ -17,8 +20,16 @@ module Git
 
     class << self
 
-      def all
+      def local
         `git branch`.split("\n").collect do |branch|
+          branch_name = branch.sub('*', '').strip
+          new(branch_name)
+        end
+      end
+      alias_method :all, :local
+
+      def remote
+        `git branch --remote`.split("\n").collect do |branch|
           branch_name = branch.sub('*', '').strip
           new(branch_name)
         end
@@ -43,3 +54,4 @@ module Git
 
   end
 end
+
