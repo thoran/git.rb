@@ -26,6 +26,9 @@
 #
 # git_branch.merged?
 # => true/false
+# 
+# git_branch.name, git_branch.to_s
+# => 'branch_name'
 
 module Git
   class Branch
@@ -55,12 +58,14 @@ module Git
       end
 
       def current
-        branch_name = `git branch`.split("\n").detect{|branch| branch =~/\*/}.sub('*', '').strip
+        branch_name = `git branch`.split("\n").detect{|branch| branch =~ /\*/}.sub('*', '').strip
         new(branch_name)
       end
       alias_method :head, :current
 
     end # class << self
+
+    attr_accessor :name
 
     def initialize(name = nil)
       @name = name
@@ -68,6 +73,10 @@ module Git
 
     def merged?
       self.class.merged.all.include?(self.name)
+    end
+
+    def to_s
+      @name
     end
 
     def method_missing(method_name, *args, &block)
