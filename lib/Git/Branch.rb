@@ -102,8 +102,8 @@ module Git
     end
 
     def method_missing(method_name, *args, &block)
-      if method_name =~ /\?$/ && !instance_methods.include?(method_name)
-        @name == method_name.sub('?', '')
+      if method_name.to_s =~ /\?$/ && !self.class.instance_methods.include?(method_name)
+        @name == method_name.to_s.sub('?', '')
       end
     end
 
