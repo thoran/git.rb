@@ -1,0 +1,500 @@
+c9ab2bce79441f15d0a37e2af68017e7680b7e8d 1 1 3
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+filename bin/dehashrocketify
+	#!/usr/bin/env ruby
+c9ab2bce79441f15d0a37e2af68017e7680b7e8d 2 2
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+filename bin/dehashrocketify
+	# dehashrocketify
+c9ab2bce79441f15d0a37e2af68017e7680b7e8d 3 3
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+filename bin/dehashrocketify
+
+0e99cdc19ed6b30de91eb79fe79287d09676ea03 4 4 2
+author thoran
+author-mail <code@thoran.com>
+author-time 1578994860
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1579001829
+committer-tz +1100
+summary 0.8.0: Added the ability to handle symbols of the form :\w_\w and some weird edge case ones generally of the form :"" or :'' with or without _ or -.  Also added a Gemfile and Gemfile.lock.  Finally, I made it so that tests can be run from any directory.
+previous 9ad5db0dd839415205cbb987a9b60ececb23a2d3 bin/dehashrocketify
+filename bin/dehashrocketify
+	# 20200114
+0e99cdc19ed6b30de91eb79fe79287d09676ea03 5 5
+author thoran
+author-mail <code@thoran.com>
+author-time 1578994860
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1579001829
+committer-tz +1100
+summary 0.8.0: Added the ability to handle symbols of the form :\w_\w and some weird edge case ones generally of the form :"" or :'' with or without _ or -.  Also added a Gemfile and Gemfile.lock.  Finally, I made it so that tests can be run from any directory.
+previous 9ad5db0dd839415205cbb987a9b60ececb23a2d3 bin/dehashrocketify
+filename bin/dehashrocketify
+	# 0.8.0
+a164ea641443e44c92b9f24d5e1c2d70509cd89d 6 6 1
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+previous 1cd94b884096fd168ab5124cfef178ada7847c82 bin/dehashrocketify
+filename bin/dehashrocketify
+
+0e99cdc19ed6b30de91eb79fe79287d09676ea03 7 7 8
+author thoran
+author-mail <code@thoran.com>
+author-time 1578994860
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1579001829
+committer-tz +1100
+summary 0.8.0: Added the ability to handle symbols of the form :\w_\w and some weird edge case ones generally of the form :"" or :'' with or without _ or -.  Also added a Gemfile and Gemfile.lock.  Finally, I made it so that tests can be run from any directory.
+previous 9ad5db0dd839415205cbb987a9b60ececb23a2d3 bin/dehashrocketify
+filename bin/dehashrocketify
+	# Changes since 0.7:
+0e99cdc19ed6b30de91eb79fe79287d09676ea03 8 8
+author thoran
+author-mail <code@thoran.com>
+author-time 1578994860
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1579001829
+committer-tz +1100
+summary 0.8.0: Added the ability to handle symbols of the form :\w_\w and some weird edge case ones generally of the form :"" or :'' with or without _ or -.  Also added a Gemfile and Gemfile.lock.  Finally, I made it so that tests can be run from any directory.
+previous 9ad5db0dd839415205cbb987a9b60ececb23a2d3 bin/dehashrocketify
+filename bin/dehashrocketify
+	# 1. Can now handle symbols of the following form... :\w_\w.
+0e99cdc19ed6b30de91eb79fe79287d09676ea03 9 9
+author thoran
+author-mail <code@thoran.com>
+author-time 1578994860
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1579001829
+committer-tz +1100
+summary 0.8.0: Added the ability to handle symbols of the form :\w_\w and some weird edge case ones generally of the form :"" or :'' with or without _ or -.  Also added a Gemfile and Gemfile.lock.  Finally, I made it so that tests can be run from any directory.
+previous 9ad5db0dd839415205cbb987a9b60ececb23a2d3 bin/dehashrocketify
+filename bin/dehashrocketify
+	# 2. Can now also handle (weird edge case) symbols of the following forms:
+0e99cdc19ed6b30de91eb79fe79287d09676ea03 10 10
+author thoran
+author-mail <code@thoran.com>
+author-time 1578994860
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1579001829
+committer-tz +1100
+summary 0.8.0: Added the ability to handle symbols of the form :\w_\w and some weird edge case ones generally of the form :"" or :'' with or without _ or -.  Also added a Gemfile and Gemfile.lock.  Finally, I made it so that tests can be run from any directory.
+previous 9ad5db0dd839415205cbb987a9b60ececb23a2d3 bin/dehashrocketify
+filename bin/dehashrocketify
+	#   i. :"\w+"
+0e99cdc19ed6b30de91eb79fe79287d09676ea03 11 11
+author thoran
+author-mail <code@thoran.com>
+author-time 1578994860
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1579001829
+committer-tz +1100
+summary 0.8.0: Added the ability to handle symbols of the form :\w_\w and some weird edge case ones generally of the form :"" or :'' with or without _ or -.  Also added a Gemfile and Gemfile.lock.  Finally, I made it so that tests can be run from any directory.
+previous 9ad5db0dd839415205cbb987a9b60ececb23a2d3 bin/dehashrocketify
+filename bin/dehashrocketify
+	#   ii. :'\w+'
+0e99cdc19ed6b30de91eb79fe79287d09676ea03 12 12
+author thoran
+author-mail <code@thoran.com>
+author-time 1578994860
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1579001829
+committer-tz +1100
+summary 0.8.0: Added the ability to handle symbols of the form :\w_\w and some weird edge case ones generally of the form :"" or :'' with or without _ or -.  Also added a Gemfile and Gemfile.lock.  Finally, I made it so that tests can be run from any directory.
+previous 9ad5db0dd839415205cbb987a9b60ececb23a2d3 bin/dehashrocketify
+filename bin/dehashrocketify
+	#   iii. :"\w+_\w+"
+0e99cdc19ed6b30de91eb79fe79287d09676ea03 13 13
+author thoran
+author-mail <code@thoran.com>
+author-time 1578994860
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1579001829
+committer-tz +1100
+summary 0.8.0: Added the ability to handle symbols of the form :\w_\w and some weird edge case ones generally of the form :"" or :'' with or without _ or -.  Also added a Gemfile and Gemfile.lock.  Finally, I made it so that tests can be run from any directory.
+previous 9ad5db0dd839415205cbb987a9b60ececb23a2d3 bin/dehashrocketify
+filename bin/dehashrocketify
+	#   iv. :"\w+-\w+"
+0e99cdc19ed6b30de91eb79fe79287d09676ea03 14 14
+author thoran
+author-mail <code@thoran.com>
+author-time 1578994860
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1579001829
+committer-tz +1100
+summary 0.8.0: Added the ability to handle symbols of the form :\w_\w and some weird edge case ones generally of the form :"" or :'' with or without _ or -.  Also added a Gemfile and Gemfile.lock.  Finally, I made it so that tests can be run from any directory.
+previous 9ad5db0dd839415205cbb987a9b60ececb23a2d3 bin/dehashrocketify
+filename bin/dehashrocketify
+	# 3. + Gemfile and Gemfile.lock.
+c9ab2bce79441f15d0a37e2af68017e7680b7e8d 6 15 1
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+filename bin/dehashrocketify
+
+6457a109aebeb1119e437098391966584c223775 13 16 1
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+previous abc6ed31243c6b361a11770778b546a3887b9005 bin/dehashrocketify
+filename bin/dehashrocketify
+	def ruby_filenames
+1cd94b884096fd168ab5124cfef178ada7847c82 8 17 2
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+previous c9ab2bce79441f15d0a37e2af68017e7680b7e8d bin/dehashrocketify
+filename bin/dehashrocketify
+	  if ARGV[0]
+1cd94b884096fd168ab5124cfef178ada7847c82 9 18
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+previous c9ab2bce79441f15d0a37e2af68017e7680b7e8d bin/dehashrocketify
+filename bin/dehashrocketify
+	    if File.directory?(ARGV[0])
+9d87b0cd21fae2c7e3995086ac6396ea0eeb071b 13 19 1
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+previous d31d1e27fd62994c2da98206a1f4cff37495d9d1 bin/dehashrocketify
+filename bin/dehashrocketify
+	      Dir.glob("#{ARGV[0]}/**/*.{erb,rb,rabl,rake}")
+1cd94b884096fd168ab5124cfef178ada7847c82 11 20 3
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+previous c9ab2bce79441f15d0a37e2af68017e7680b7e8d bin/dehashrocketify
+filename bin/dehashrocketify
+	    else
+1cd94b884096fd168ab5124cfef178ada7847c82 12 21
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+previous c9ab2bce79441f15d0a37e2af68017e7680b7e8d bin/dehashrocketify
+filename bin/dehashrocketify
+	      Dir[ARGV[0]]
+1cd94b884096fd168ab5124cfef178ada7847c82 13 22
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+previous c9ab2bce79441f15d0a37e2af68017e7680b7e8d bin/dehashrocketify
+filename bin/dehashrocketify
+	    end
+c9ab2bce79441f15d0a37e2af68017e7680b7e8d 10 23 1
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+filename bin/dehashrocketify
+	  else
+9d87b0cd21fae2c7e3995086ac6396ea0eeb071b 18 24 1
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+previous d31d1e27fd62994c2da98206a1f4cff37495d9d1 bin/dehashrocketify
+filename bin/dehashrocketify
+	    Dir.glob("./**/*.{erb,rb,rabl,rake}")
+1cd94b884096fd168ab5124cfef178ada7847c82 22 25 2
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+previous c9ab2bce79441f15d0a37e2af68017e7680b7e8d bin/dehashrocketify
+filename bin/dehashrocketify
+	  end
+1cd94b884096fd168ab5124cfef178ada7847c82 23 26
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+previous c9ab2bce79441f15d0a37e2af68017e7680b7e8d bin/dehashrocketify
+filename bin/dehashrocketify
+	end
+c9ab2bce79441f15d0a37e2af68017e7680b7e8d 16 27 1
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+filename bin/dehashrocketify
+
+1cd94b884096fd168ab5124cfef178ada7847c82 25 28 1
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+previous c9ab2bce79441f15d0a37e2af68017e7680b7e8d bin/dehashrocketify
+filename bin/dehashrocketify
+	def main
+0e99cdc19ed6b30de91eb79fe79287d09676ea03 29 29 1
+author thoran
+author-mail <code@thoran.com>
+author-time 1578994860
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1579001829
+committer-tz +1100
+summary 0.8.0: Added the ability to handle symbols of the form :\w_\w and some weird edge case ones generally of the form :"" or :'' with or without _ or -.  Also added a Gemfile and Gemfile.lock.  Finally, I made it so that tests can be run from any directory.
+previous 9ad5db0dd839415205cbb987a9b60ececb23a2d3 bin/dehashrocketify
+filename bin/dehashrocketify
+	  regex = /([^\:])\:(["']*[\w_-]+[?!]*["']*) *=>/
+1cd94b884096fd168ab5124cfef178ada7847c82 26 30 2
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+previous c9ab2bce79441f15d0a37e2af68017e7680b7e8d bin/dehashrocketify
+filename bin/dehashrocketify
+	  ruby_filenames.each do |ruby_filename|
+1cd94b884096fd168ab5124cfef178ada7847c82 27 31
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+previous c9ab2bce79441f15d0a37e2af68017e7680b7e8d bin/dehashrocketify
+filename bin/dehashrocketify
+	    contents = File.read(ruby_filename)
+0e99cdc19ed6b30de91eb79fe79287d09676ea03 32 32 2
+author thoran
+author-mail <code@thoran.com>
+author-time 1578994860
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1579001829
+committer-tz +1100
+summary 0.8.0: Added the ability to handle symbols of the form :\w_\w and some weird edge case ones generally of the form :"" or :'' with or without _ or -.  Also added a Gemfile and Gemfile.lock.  Finally, I made it so that tests can be run from any directory.
+previous 9ad5db0dd839415205cbb987a9b60ececb23a2d3 bin/dehashrocketify
+filename bin/dehashrocketify
+	    if contents =~ regex
+0e99cdc19ed6b30de91eb79fe79287d09676ea03 33 33
+author thoran
+author-mail <code@thoran.com>
+author-time 1578994860
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1579001829
+committer-tz +1100
+summary 0.8.0: Added the ability to handle symbols of the form :\w_\w and some weird edge case ones generally of the form :"" or :'' with or without _ or -.  Also added a Gemfile and Gemfile.lock.  Finally, I made it so that tests can be run from any directory.
+previous 9ad5db0dd839415205cbb987a9b60ececb23a2d3 bin/dehashrocketify
+filename bin/dehashrocketify
+	      new_contents = contents.gsub(regex, "\\1\\2:")
+6457a109aebeb1119e437098391966584c223775 31 34 2
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+previous abc6ed31243c6b361a11770778b546a3887b9005 bin/dehashrocketify
+filename bin/dehashrocketify
+	      File.write(ruby_filename, new_contents)
+6457a109aebeb1119e437098391966584c223775 32 35
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+previous abc6ed31243c6b361a11770778b546a3887b9005 bin/dehashrocketify
+filename bin/dehashrocketify
+	    end
+1cd94b884096fd168ab5124cfef178ada7847c82 30 36 1
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+previous c9ab2bce79441f15d0a37e2af68017e7680b7e8d bin/dehashrocketify
+filename bin/dehashrocketify
+	  end
+c9ab2bce79441f15d0a37e2af68017e7680b7e8d 21 37 1
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+filename bin/dehashrocketify
+	end
+1cd94b884096fd168ab5124cfef178ada7847c82 32 38 1
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+previous c9ab2bce79441f15d0a37e2af68017e7680b7e8d bin/dehashrocketify
+filename bin/dehashrocketify
+
+abc6ed31243c6b361a11770778b546a3887b9005 38 39 1
+author thoran
+author-mail <code@thoran.com>
+author-time 1513236528
+author-tz +1100
+committer thoran
+committer-mail <code@thoran.com>
+committer-time 1513236528
+committer-tz +1100
+summary Committed automatically by git-importall.
+previous a164ea641443e44c92b9f24d5e1c2d70509cd89d bin/dehashrocketify
+filename bin/dehashrocketify
+	main

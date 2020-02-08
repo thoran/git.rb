@@ -3,41 +3,43 @@
 
 # Examples:
 #
+# require 'Git/Branch'
+#
 # Git::Branch.local
-# => <Git::Branch>
+# => Git::Branch
 #
 # Git::Branch.local.all, Git::Branch.all
-# => [<Git::Branch @name='master'>, ...]
+# => [#<Git::Branch @name="master">, ...]
 #
 # Git::Branch.remote.all
-# => [<Git::Branch @name='master'>, ...]
+# => [#<Git::Branch @name="master">, ...]
 #
 # Git::Branch.merged.all
-# => [<Git::Branch @name='master'>, ...]
+# => [#<Git::Branch @name="master">, ...]
 #
 # Git::Branch.remote.merged.all
-# => [<Git::Branch @name='master'>, ...]
+# => [#<Git::Branch @name="master">, ...]
 #
 # Git::Branch.current
-# => <Git::Branch @name='master'>
+# => #<Git::Branch @name="master">
 #
 # Git::Branch.current.master?
 # => true
 #
 # git_branch = Git::Branch.new('branch_name')
-# => <Git::Branch @name='branch_name'>
+# => #<Git::Branch @name="branch_name">
 #
 # git_branch.merged?
 # => true/false
-# 
+#
 # git_branch.name, git_branch.to_s
-# => 'branch_name'
-# 
+# => "branch_name"
+#
 # git_branch = Git::Branch.new('branch_name', remote: 'remote_name')
-# => <Git::Branch @name='branch_name' @remote='remote_name'>
-# 
+# => #<Git::Branch @name="branch_name" @remote="remote_name">
+#
 # git_branch.remote
-# => 'remote_name'
+# => "remote_name"
 
 require 'Array/all_but_first'
 
@@ -62,9 +64,18 @@ module Git
         self
       end
 
+      def command_string
+        command_string = ['git branch', @switches.join(' ')].join(' ').strip
+        @switches = []
+        command_string
+      end
+
+      def branch_output
+        `#{command_string}`
+      end
+
       def all
-        command = ['git branch', @switches.join(' ')].join(' ')
-        result = `#{command}`.split("\n").collect do |branch|
+        result = branch_output.split("\n").collect do |branch|
           if @switches.include?('--remote')
             branch_parts = branch.split('/')
             remote, branch_name = branch_parts.first.sub('*', '').strip, branch_parts.all_but_first.join('/')
@@ -74,12 +85,11 @@ module Git
             new(branch_name)
           end
         end
-        @switches = []
         result
       end
 
       def current
-        branch_name = `git branch`.split("\n").detect{|branch| branch =~ /\*/}.sub('*', '').strip
+        branch_name = branch_output.split("\n").detect{|branch| branch =~ /\*/}.sub('*', '').strip
         new(branch_name)
       end
       alias_method :head, :current

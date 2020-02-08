@@ -1,6 +1,26 @@
 # Git/Blame.rb
 # Git::Blame
 
+# Examples:
+#
+# require 'Git/Blame'
+#
+# git_blame = Git::Blame.new('file/in/git/repository.rb')
+# => #<Git::Blame @filename='file/in/git/repository.rb'>
+#
+# git_blame.entries
+# => [#<Git::PorcelainEntry @porcelain_output='...', @line_number=1>, ...]
+#
+# line_number = 123
+# git_blame_porcelain_entry = git_blame.find(line_number)
+# => #<Git::PorcelainEntry @porcelain_output='...', @line_number=123>
+#
+# git_blame_porcelain_entry.commit_hash
+# => "c9ab2bce79441f15d0a37e2af68017e7680b7e8d"
+#
+# git_blame_porcelain_entry.author
+# => "thoran"
+
 require 'Array/all_but_first'
 require 'Array/all_but_last'
 
@@ -71,20 +91,23 @@ module Git
       end
     end
 
+    def blame_output
+      `#{command_string}`
+    end
+
     def entries
       line_count = 0
       porcelain_entry_string = ''
       entries = []
-      git_blame_output = `#{command_string}`
-      git_blame_array = git_blame_output.split("\n")
+      blame_array = blame_output.split("\n")
       line_number = 0
       i = -1
-      until i >= git_blame_array.size - 1
-        until git_blame_array[i].split.first == 'filename'
-          porcelain_entry_string << git_blame_array[i += 1]
+      until i >= blame_array.size - 1
+        until blame_array[i].split.first == 'filename'
+          porcelain_entry_string << blame_array[i += 1]
           porcelain_entry_string << "\n"
         end
-        porcelain_entry_string << git_blame_array[i += 1]
+        porcelain_entry_string << blame_array[i += 1]
         porcelain_entry_string << "\n"
         entries << PorcelainEntry.new(porcelain_entry_string, line_number += 1).parse
         line_count = 0
@@ -94,7 +117,8 @@ module Git
     end
 
     def find(line_number)
-      entries.detect{|entry| entry.line_number == line_number}
+      @line_number = line_number
+      entries.detect{|entry| entry.line_number == @line_number}
     end
 
   end

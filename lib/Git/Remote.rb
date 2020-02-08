@@ -3,13 +3,21 @@
 
 # Examples:
 #
+# require 'Git/Remote'
+#
 # Git::Remote.all
-# => [<Git::Remote @name='origin'>, ...]
+# => [#<Git::Remote @name='origin', @url='git@github.com:thoran/rails.git'>, #<Git::Remote @name='upstream', @url='git@github.com:rails/rails.git'>]
 #
 # Git::Remote.exist?('origin')
-# => <Git::Remote @name='origin' @url=...>
+# => true
 #
-# git_remote = Git::Remote.all.first.to_s
+# git_remote = Git::Remote.find('origin')
+# => #<Git::Remote @name="origin" @url="git@github.com:thoran/rails.git">
+#
+# git_remote.to_s
+# => "origin git@github.com:thoran/rails.git"
+#
+# git_remote.name
 # => "origin"
 
 module Git
@@ -17,10 +25,18 @@ module Git
 
     class << self
 
+      def parse_line(remote_output_line)
+        name, url = remote_output_line.split
+        new(name: name, url: url)
+      end
+
+      def remote_output
+        `git remote --verbose`
+      end
+
       def all
-        command = 'git remote --verbose'
-        `#{command}`.split("\n").collect do |remote|
-          new_from_command_output(remote)
+        remote_output.split("\n").collect do |remote|
+          parse_line(remote)
         end.uniq{|remote| remote.name}
       end
 
@@ -28,25 +44,24 @@ module Git
         all.detect{|remote| remote.name == remote_name}
       end
 
+      def add_command(remote_name, remote_url)
+        ['git remote add', remote_name, remote_url].join(' ')
+      end
+
       def add(remote_name, remote_url)
-        command = ['git remote add', remote_name, remote_url].join(' ')
-        system command
+        system add_command(remote_name, remote_url)
+      end
+
+      def remove_command(remote_name)
+        ['git remote remove', remote_name].join(' ')
       end
 
       def remove(remote_name, remote_url)
-        command = ['git remote remove', remote_name].join(' ')
-        system command
+        system remove_command(remote_name)
       end
 
       def exist?(remote_name)
         !!find(remote_name)
-      end
-
-      private
-
-      def new_from_command_output(remote)
-        name, url = remote.split
-        new(name: name, url: url)
       end
 
     end # class << self

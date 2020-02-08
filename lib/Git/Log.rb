@@ -1,6 +1,22 @@
 # Git/Log.rb
 # Git::Log
 
+# Examples:
+#
+# require 'Git/Log'
+#
+# git_log = Git::Log.parse(`git log`)
+# => [#<Git::Log @commits = [#<Git::Log::Commit @hash=..., @author="thoran", @date=..., @message=...>, ...]>
+#
+# git_log.commits
+# => [#<Git::Log::Commit @hash=..., @author="thoran", @date=..., @message=...>, ...]
+#
+# git_log.commits.first
+# => #<Git::Log::Commit @hash=..., @author="thoran", @date=..., @message=...>
+#
+# git_log.commits.first.author
+# => "thoran"
+
 require 'Ordinal/Array'
 
 module Git
@@ -73,61 +89,5 @@ module Git
       commits.send(method_name, *args, &block)
     end
 
-  end # class Log
-end # module Git
-
-if __FILE__ == $0
-
-  def test_git_log_commit
-    commit_string = '
-      commit ab550dc384cd9d49b1f1586ff957893988c04d22
-      Author: thoran <code@thoran.com>
-      Date:   Fri Nov 16 12:39:53 2012 +1100
-      
-          Commit #4.
-    '
-    commit = Git::Log::Commit.parse(commit_string)
-    commit.hash == 'ab550dc384cd9d49b1f1586ff957893988c04d22' ? (print '.') : (print 'x')
-    commit.message == 'Commit #4.' ? (print '.') : (print 'x')
   end
-
-  def test_git_log
-    log_stream = '
-      commit ab550dc384cd9d49b1f1586ff957893988c04d22
-      Author: thoran <code@thoran.com>
-      Date:   Fri Nov 16 12:39:53 2012 +1100
-      
-          Commit #4.
-      
-      commit 15ab28c017d422ae98065f5674ac837f7bc7adb1
-      Author: thoran <code@thoran.com>
-      Date:   Thu Nov 8 16:02:26 2012 +1100
-      
-          Commit #3.
-      
-      commit 236f6ff09863d68289d89ee467dd4e450eb22295
-      Author: thoran <code@thoran.com>
-      Date:   Thu Nov 8 15:54:59 2012 +1100
-      
-          Commit #2.
-      
-      commit c39a4d62bd79969e3e9033a7573943b24cd81cd9
-      Author: thoran <code@thoran.com>
-      Date:   Fri Oct 26 21:23:47 2012 +1100
-      
-          Commit #1.
-    '
-    git_log = Git::Log.parse(log_stream)
-    git_log.size == 4 ? (print '.') : (print 'x')
-    git_log.first.hash == 'c39a4d62bd79969e3e9033a7573943b24cd81cd9' ? (print '.') : (print 'x')
-  end
-
-  def test
-    test_git_log_commit
-    test_git_log
-    puts
-  end
-
-  test
-
 end

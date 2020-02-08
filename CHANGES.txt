@@ -1,0 +1,11 @@
+0.10.0 Preparation for release as a gem
+
+1. + dependencies, including those in lib/Array and lib/Ordinal, and hence lib/Thoran.
+2. Now using $LOAD_PATH manipulation instead of require_relative.
+3. + test (Either moved out of class implementations or created.)
+4. + .gitignore
+5. + CHANGES.txt
+6. + git.rb.gemspec
+7. + lib/Git/VERSION.rb
+8. + README.md
+9. + TODO.txt
