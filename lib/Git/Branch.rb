@@ -3,7 +3,10 @@
 
 # Examples:
 #
-# Git::Branch.local, Git::Branch.all
+# Git::Branch.local
+# => <Git::Branch>
+#
+# Git::Branch.local.all, Git::Branch.all
 # => [<Git::Branch @name='master'>, ...]
 #
 # Git::Branch.remote.all
@@ -45,7 +48,9 @@ module Git
 
     class << self
 
-      def local; end
+      def local
+        self
+      end
 
       def remote
         @switches << '--remote'
@@ -58,7 +63,7 @@ module Git
       end
 
       def all
-        command = ['git branch', @switches.join(' ')].join(' ').strip
+        command = ['git branch', @switches.join(' ')].join(' ')
         result = `#{command}`.split("\n").collect do |branch|
           if @switches.include?('--remote')
             branch_parts = branch.split('/')
