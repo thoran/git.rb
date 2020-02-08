@@ -29,6 +29,14 @@
 # 
 # git_branch.name, git_branch.to_s
 # => 'branch_name'
+# 
+# git_branch = Git::Branch.new('branch_name', remote: 'remote_name')
+# => <Git::Branch @name='branch_name' @remote='remote_name'>
+# 
+# git_branch.remote
+# => 'remote_name'
+
+require 'Array/all_but_first'
 
 module Git
   class Branch
@@ -52,8 +60,14 @@ module Git
       def all
         command = ['git branch', @switches.join(' ')].join(' ').strip
         `#{command}`.split("\n").collect do |branch|
-          branch_name = branch.sub('*', '').strip
-          new(branch_name)
+          if @switches.include?('--remote')
+            branch_parts = branch.split('/')
+            remote, branch_name = branch_parts.first.sub('*', '').strip, branch_parts.all_but_first
+            new(branch_name, remote: remote)
+          else
+            branch_name = branch.sub('*', '').strip
+            new(branch_name)
+          end
         end
       end
 
@@ -66,13 +80,19 @@ module Git
     end # class << self
 
     attr_accessor :name
+    attr_accessor :remote
 
-    def initialize(name = nil)
+    def initialize(name = nil, **args)
       @name = name
+      @remote = args[:remote]
     end
 
     def merged?
-      self.class.merged.all.include?(self.name)
+      if @remote
+        self.class.remote.merged.all.include?(@remote + '/' + @name)
+      else
+        self.class.merged.all.include?(@name)
+      end
     end
 
     def to_s
