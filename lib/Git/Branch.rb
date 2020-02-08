@@ -4,10 +4,13 @@
 # Examples:
 #
 # Git::Branch.all
-# => ['master', ...]
+# => [<Git::Branch @name='master'>, ...]
 #
 # Git::Branch.current
-# => 'master'
+# => <Git::Branch @name='master'>
+#
+# Git::Branch.current.master?
+# => true
 
 module Git
   class Branch
@@ -15,14 +18,28 @@ module Git
     class << self
 
       def all
-        `git branch`.split("\n").collect{|branch| branch.sub('*', '').strip}
+        `git branch`.split("\n").collect do |branch|
+          branch_name = branch.sub('*', '').strip
+          new(branch_name)
+        end
       end
 
       def current
-        `git branch`.split("\n").detect{|branch| branch =~ /\*/}.sub('*', '').strip
+        branch_name = `git branch`.split("\n").detect{|branch| branch =~ /\*/}.sub('*', '').strip
+        new(branch_name)
       end
 
     end # class << self
+
+    def initialize(name = nil)
+      @name = name
+    end
+
+    def method_missing(method_name, *args, &block)
+      if method_name =~ /\?$/
+        @name == method_name.sub('?', '')
+      end
+    end
 
   end
 end
