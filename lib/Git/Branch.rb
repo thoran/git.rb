@@ -59,7 +59,7 @@ module Git
 
       def all
         command = ['git branch', @switches.join(' ')].join(' ').strip
-        `#{command}`.split("\n").collect do |branch|
+        result = `#{command}`.split("\n").collect do |branch|
           if @switches.include?('--remote')
             branch_parts = branch.split('/')
             remote, branch_name = branch_parts.first.sub('*', '').strip, branch_parts.all_but_first
@@ -69,6 +69,8 @@ module Git
             new(branch_name)
           end
         end
+        @switches = []
+        result
       end
 
       def current
