@@ -20,6 +20,12 @@
 #
 # Git::Branch.current.master?
 # => true
+#
+# git_branch = Git::Branch.new('branch_name')
+# => <Git::Branch @name='branch_name'>
+#
+# git_branch.merged?
+# => true/false
 
 module Git
   class Branch
@@ -49,7 +55,7 @@ module Git
       end
 
       def current
-        branch_name = `git branch`.split("\n").detect{|branch| branch =~ /\*/}.sub('*', '').strip
+        branch_name = `git branch`.split("\n").detect{|branch| branch =~/\*/}.sub('*', '').strip
         new(branch_name)
       end
       alias_method :head, :current
@@ -60,8 +66,12 @@ module Git
       @name = name
     end
 
+    def merged?
+      self.class.merged.all.include?(self.name)
+    end
+
     def method_missing(method_name, *args, &block)
-      if method_name =~ /\?$/
+      if method_name =~ /\?$/ && !instance_methods.include?(method_name)
         @name == method_name.sub('?', '')
       end
     end
