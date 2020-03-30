@@ -1,3 +1,4 @@
+20200208
 0.10.0 Preparation for release as a gem
 
 1. + dependencies, including those in lib/Array and lib/Ordinal, and hence lib/Thoran.
@@ -9,3 +10,8 @@
 7. + lib/Git/VERSION.rb
 8. + README.md
 9. + TODO.txt
+
+20200330
+0.10.1
+
+1. lib/Thoran/* --> lib/Thoran/Array (It was working only because I had these files in the Ruby library path elsewhere.)
