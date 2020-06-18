@@ -21,3 +21,8 @@
 
 1. ~ lib/Git/VERSION.rb (0.10.0 --> 0.10.2!)
 2. ~ git.rb.gemspec: + require_relative './lib/Git/VERSION'
+
+20200618
+0.10.3
+
+1. ~ Git::Log.parse: lstrip!'ing each line causes issues in that edge case there a commit message has "   commit" at the start of the line.

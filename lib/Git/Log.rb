@@ -60,7 +60,6 @@ module Git
         commit_log = Log.new
         commit_string = ''
         log_stream.each_line do |line|
-          line.lstrip!
           if line =~ /^commit/ && !commit_string.empty?
             commit_log.prepend(Commit.parse(commit_string))
             commit_string = line
