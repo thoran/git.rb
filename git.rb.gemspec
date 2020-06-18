@@ -1,7 +1,9 @@
+require_relative './lib/Git/VERSION'
+
 Gem::Specification.new do |spec|
   spec.name = 'git.rb'
-  spec.version = '0.10.1'
-  spec.date = '2020-03-30'
+  spec.version = Git::VERSION
+  spec.date = '2020-04-01'
 
   spec.summary = "Do git stuff from Ruby."
   spec.description = "Do stuff with git-blame, git-branch, git-log, and git-remote from Ruby."
