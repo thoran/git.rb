@@ -26,3 +26,8 @@
 0.10.3
 
 1. ~ Git::Log.parse: lstrip!'ing each line causes issues in that edge case there a commit message has "   commit" at the start of the line.
+
+20200619
+0.10.4
+
+1. ~ ./git.rb.gemspec with the right date.
