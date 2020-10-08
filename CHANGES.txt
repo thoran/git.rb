@@ -31,3 +31,10 @@
 0.10.4
 
 1. ~ ./git.rb.gemspec with the right date.
+
+20201008
+0.11.0
+
+1. ~ Git::Log::Commit.parse: completely rewritten, so as to be able to handle merge commits as well as non-merge commits which have a slightly different format.
+2. ~ Git/Log_test.rb, so as to cover merge commits for both Git::Log::Commit and Git::Log.
+3. + String#capture (Thoran::String::Capture#capture)

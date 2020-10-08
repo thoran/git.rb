@@ -1,0 +1,94 @@
+commit f747fc11aedac304e0db0326e48758f5d77687fc (HEAD -> main, origin/release/staging, origin/main, origin/HEAD)
+Merge: 2026aed13f 74a989083b
+Author: Dev1 <dev1@example.com>
+Date:   Tue Sep 29 13:42:38 2020 +1000
+
+    Merge pull request #4 from my/feature/branch
+    
+    fix: confusing wording.
+
+commit 2026aed13ffe3cbd5c5f43797e687ae71b080eff
+Merge: f4412495e7 956b899ca7
+Author: Dev2 <dev2@example.com>
+Date:   Tue Sep 29 13:40:31 2020 +1000
+
+    Merge pull request #3 from my/feature/branch
+    
+    A nice little note.
+
+commit 74a989083b68c5d9d5624aa1796c75509ae1e25b
+Author: Dev2 <dev2@example.com>
+Date:   Tue Sep 29 13:19:49 2020 +1000
+
+    fix: The broken thing.
+    
+    "This Label" in some section should be
+    "A Different Label" instead.
+    
+    Fixes https://github.com/org/repo/issues/20326
+
+commit f4412495e78a8721c611ef91df7ba46ec499eb40
+Merge: 7f4f73569a b5dbddfe4a
+Author: Dev0 <devp@example.com>
+Date:   Tue Sep 29 12:26:13 2020 +1000
+
+    Merge pull request #2 from my/feature/branch
+    
+    Add a date filter on invoices report
+
+commit b5dbddfe4a981e0b89e8e8bd99c52cf55d273a9a
+Author: Dev2 <dev1@example.com>
+Date:   Tue Sep 22 13:48:08 2020 +1000
+
+    feat: show date on invoice report
+    
+    Our customers want to know the date their orders were paid.
+    resolves: https://github.com/org/repo/issues/20082
+
+commit fd9e0fc5c8fa960e172ac11c9e81b52830736600
+Author: Dev0 <dev0@example.com>
+Date:   Tue Sep 22 13:00:34 2020 +1000
+
+    feat: add filters to report
+
+commit 7f4f73569a8f587c58ac1feadafbfded19a1a9af
+Merge: 99a2d81b55 c8163c6524
+Author: Dev0 <dev0@example.com>
+Date:   Tue Sep 29 11:22:50 2020 +1000
+
+    Merge pull request #1 from my/feature/branch
+    
+    Date filter on the report
+
+commit 956b899ca70f20148b5e59af281b03bd50cc09c3
+Author: Dev1 <dev1@example.com>
+Date:   Fri Aug 28 17:25:15 2020 +1000
+
+    Feat: Use different version of library
+
+    now we have dependabot again
+
+commit 37770464543437c24a5d0f2e96ad47d04df1d394
+Author: Dev2 <dev2@example.com>
+Date:   Tue Aug 25 15:22:04 2020 +1000
+
+    Feat: Remove another unused library
+    
+    Use was removed here: 9efaabbd51adf8625fb085c53eec16c56774db80
+
+commit 8be497e20f2dd5eeec23357ddfb75366cef73e21
+Author: Dev1 <dev1@example.com>
+Date:   Tue Aug 25 15:17:28 2020 +1000
+
+    Remove unused library
+    
+    Use was removed here: 34ac83def20552980bd96ea4a486931f761bb6d6
+
+commit 99a2d81b5594a020f5a3f49e6904913119ce73b4
+Merge: 74f89c2536 5a0640c3e7
+Author: Dev0 <dev0@example.com>
+Date:   Tue Sep 29 10:32:26 2020 +1000
+
+    Merge pull request #0 from my/feature/branch
+    
+    Feat: Nice new feature

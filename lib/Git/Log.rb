@@ -18,6 +18,7 @@
 # => "thoran"
 
 require 'Ordinal/Array'
+require 'String/capture'
 
 module Git
   class Log
@@ -26,23 +27,45 @@ module Git
 
       class << self
         def parse(commit_string)
-          parsed_commit_string = commit_string.split("\n").collect{|line| line.strip}.select{|line| !line.empty?}
-          Commit.new(
-            hash: parsed_commit_string.first.gsub(/^commit /, ''),
-            author: parsed_commit_string.second.gsub(/^Author: /, ''),
-            date: parsed_commit_string.third.gsub(/^Date:   /, ''),
-            message: parsed_commit_string.fourth
-          )
+          hash = merge = author = date = message = ''
+          commit_string.split("\n").each do |line|
+            case line.strip
+            when /^commit (\w+)/
+              hash = line.strip.capture(/^commit (\w+)/)
+            when /^Merge: /
+              merge = line.strip.gsub(/^Merge: /, '')
+            when /^Author: /
+              author = line.strip.gsub(/^Author: /, '')
+            when /^Date:   /
+              date = line.strip.gsub(/^Date:   /, '')
+            else
+              if line.strip.empty?
+                (message ||= '') << "\n\n"
+              else
+                (message ||= '') << line.lstrip
+              end
+            end
+          end
+          commit_args = {
+            hash: hash,
+            author: author,
+            date: date,
+            message: message.lstrip
+          }
+          commit_args.merge!(merge: merge)
+          Commit.new(commit_args)
         end
       end # class << self
 
       attr_reader :hash
+      attr_reader :merge
       attr_reader :author
       attr_reader :date
       attr_reader :message
 
       def initialize(values = {})
         @hash = values[:hash]
+        @merge = values[:merge]
         @author = values[:author]
         @date = values[:date]
         @message = values[:message]
