@@ -38,3 +38,9 @@
 1. ~ Git::Log::Commit.parse: completely rewritten, so as to be able to handle merge commits as well as non-merge commits which have a slightly different format.
 2. ~ Git/Log_test.rb, so as to cover merge commits for both Git::Log::Commit and Git::Log.
 3. + String#capture (Thoran::String::Capture#capture)
+
+20201022
+0.12.0
+
+1. + Git::Branch.default
+2. + Git::Branch#method_missing tests

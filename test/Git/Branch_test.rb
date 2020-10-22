@@ -15,7 +15,7 @@ describe Git::Branch do
 
   subject{Git::Branch}
 
-  let(:git_branch_output) do
+  let(:branch_output) do
     <<~GIT_BRANCH_OUTPUT
       * master
       thoran/feat/awesome
@@ -50,9 +50,6 @@ describe Git::Branch do
   end
 
   describe ".all" do
-
-    let(:branch_output){git_branch_output}
-
     it "outputs an array" do
       subject.stub(:branch_output, branch_output) do
         expect(subject.all.class).must_equal Array
@@ -79,9 +76,6 @@ describe Git::Branch do
   end
 
   describe ".current" do
-
-    let(:branch_output){git_branch_output}
-
     it "correctly parses out master as being the current branch" do
       subject.stub(:branch_output, branch_output) do
         expect(subject.current.name).must_equal 'master'
@@ -89,4 +83,29 @@ describe Git::Branch do
     end
   end
 
+  describe "#method_missing" do
+    context "current branch is master" do
+      it "returns true" do
+        subject.stub(:branch_output, branch_output) do
+          expect(subject.current.master?).must_equal true
+        end
+      end
+    end
+
+    context "current branch is NOT master" do
+      let(:branch_output) do
+        <<~GIT_BRANCH_OUTPUT
+          master
+          * thoran/feat/awesome
+          thoran/perf/lightspeed
+        GIT_BRANCH_OUTPUT
+      end
+
+      it "returns true" do
+        subject.stub(:branch_output, branch_output) do
+          expect(subject.current.master?).must_equal false
+        end
+      end
+    end
+  end
 end

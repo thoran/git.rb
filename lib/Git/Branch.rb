@@ -94,6 +94,10 @@ module Git
       end
       alias_method :head, :current
 
+      def default
+        `git rev-parse --abbrev-ref origin/HEAD`.strip.split('/').last
+      end
+
     end # class << self
 
     attr_accessor :name
