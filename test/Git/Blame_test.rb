@@ -70,6 +70,13 @@ describe Git::Blame do
         expect(subject.find(34).author_time).must_equal '1513236528'
       end
     end
+
+    it "is able to find multiple line numbers from a single Git::Blame instance" do
+      subject.stub(:blame_output, blame_output) do
+        expect(subject.find(1).class).must_equal Git::Blame::PorcelainEntry
+        expect(subject.find(2).class).must_equal Git::Blame::PorcelainEntry
+      end
+    end
   end
 
 end

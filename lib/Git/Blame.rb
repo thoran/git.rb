@@ -117,8 +117,7 @@ module Git
     end
 
     def find(line_number)
-      @line_number = line_number
-      entries.detect{|entry| entry.line_number == @line_number}
+      entries.detect{|entry| entry.line_number == line_number}
     end
 
   end
