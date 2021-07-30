@@ -44,7 +44,13 @@ git_blame_porcelain_entry.author
 
 require 'Git/Branch'
 
+Git::Branch.default
+# => 'branch_name'
+
 Git::Branch.local
+# => Git::Branch
+
+Git::Branch.remote
 # => Git::Branch
 
 Git::Branch.local.all, Git::Branch.all

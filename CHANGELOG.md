@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.13.0 (20210730)
+1. ~ README.md to include refrence to Git::Branch.default
+2. ~ README.md to include refrence to Git::Branch.remote
+
 ## 0.13.0 (20210702): ~ Git::Blame#find retains all porcelain entries being able to be found
 1. ~ Git::Blame#find, so that it doesn't assign @line_number, thereby retaining access to all porcelain entries
 2. /CHANGES.txt/CHANGELOG.md/, ascending --> descending date order
