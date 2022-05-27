@@ -13,9 +13,9 @@ require 'Git/Blame'
 
 describe Git::Blame do
 
-  let(:git_blame_output) do
-    git_blame_output_filename = File.expand_path(File.join(__FILE__, '..', '..', 'fixtures', 'git_blame_output.txt'))
-    File.read(git_blame_output_filename)
+  let(:blame_output) do
+    blame_output_filename = File.expand_path(File.join(__FILE__, '..', '..', 'fixtures', 'blame_output.txt'))
+    File.read(blame_output_filename)
   end
 
   describe "#command_string" do
@@ -45,8 +45,6 @@ describe Git::Blame do
   describe "#entries" do
     subject{Git::Blame.new('dummy_filename.rb')}
 
-    let(:blame_output){git_blame_output}
-
     it "returns an array of PorcelainEntry objects" do
       subject.stub(:blame_output, blame_output) do
         expect(subject.entries.count).must_equal 39
@@ -56,8 +54,6 @@ describe Git::Blame do
 
   describe "#find" do
     subject{Git::Blame.new('dummy_filename.rb')}
-
-    let(:blame_output){git_blame_output}
 
     it "finds the correct line given a line number" do
       subject.stub(:blame_output, blame_output) do

@@ -16,11 +16,8 @@ describe Git::Branch do
   subject{Git::Branch}
 
   let(:branch_output) do
-    <<~GIT_BRANCH_OUTPUT
-      * master
-      thoran/feat/awesome
-      thoran/perf/lightspeed
-    GIT_BRANCH_OUTPUT
+    branch_output_filename = File.expand_path(File.join(__FILE__, '..', '..', 'fixtures', 'branch_output.txt'))
+    File.read(branch_output_filename)
   end
 
   describe ".command_string" do

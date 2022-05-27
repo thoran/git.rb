@@ -1,0 +1,4 @@
+origin  git@github.com:thoran/rails.git (fetch)
+origin  git@github.com:thoran/rails.git (push)
+upstream  git@github.com:rails/rails.git (fetch)
+upstream  git@github.com:rails/rails.git (push)

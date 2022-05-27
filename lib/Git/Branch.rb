@@ -6,7 +6,7 @@
 # require 'Git/Branch'
 #
 # Git::Branch.local
-# => Git::Branch
+# => #<Git::Branch>
 #
 # Git::Branch.local.all, Git::Branch.all
 # => [#<Git::Branch @name="master">, ...]

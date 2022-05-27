@@ -14,10 +14,8 @@ require 'Git/Remote'
 describe Git::Remote do
 
   let(:remote_output) do
-    'origin  git@github.com:thoran/rails.git (fetch)
-     origin  git@github.com:thoran/rails.git (push)
-     upstream  git@github.com:rails/rails.git (fetch)
-     upstream  git@github.com:rails/rails.git (push)'
+    remote_output_filename = File.expand_path(File.join(__FILE__, '..', '..', 'fixtures', 'remote_output.txt'))
+    File.read(remote_output_filename)
   end
 
   describe ".parse_line" do

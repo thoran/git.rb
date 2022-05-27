@@ -1,5 +1,24 @@
 # CHANGELOG
 
+## 0.14.0 (20220527) 
+1. ~ README.md: /require 'Git'/require 'git.rb'/
+2. ~ README.md: + #<> to a couple of commented out indications of output.
+3. ~ git.rb.gemspec to include development dependencies.
+4. + Gemfile
+5. - lib/Array, as there's duplicate functionality in Ordinal.
+6. - Thoran/Array, as there's duplicate functionality in Ordinal.
+7. /Git.rb/git.rb/
+8. ~ lib/Git/Branch.rb: + #<> to a commented out indications of output.
+9. Ordinal 0.2.0 --> Ordinal 0.2.1
+10. Swapped contents of lib/String/capture.rb and lib/Thoran/String/Capture/capture.rb.
+11. test/Git.rb --> test/git_test.rb
+12. ~ test/Git/Branch_test.rb: Use a fixture.
+13. ~ test/Git/Remote_test.rb: Use a fixture.
+14. ~ test/Git/Blame_test.rb: Dropped "git_" from the start of the fixture variable names.
+15. ~ test/Git/Log_test.rb: Dropped "git_" from the start of the fixture variable names.
+16. test/fixtures/git_blame_output.txt --> test/fixtures/blame_output.txt
+17. test/fixtures/git_log_output.txt --> test/fixtures/log_output.txt
+
 ## 0.13.0 (20210730)
 1. ~ README.md to include refrence to Git::Branch.default
 2. ~ README.md to include refrence to Git::Branch.remote

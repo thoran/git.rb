@@ -1,0 +1,21 @@
+PATH
+  remote: .
+  specs:
+    git.rb (0.13.1)
+
+GEM
+  remote: https://www.rubygems.org/
+  specs:
+    minitest (5.15.0)
+    minitest-spec-context (0.0.4)
+
+PLATFORMS
+  x86_64-darwin-20
+
+DEPENDENCIES
+  git.rb!
+  minitest
+  minitest-spec-context
+
+BUNDLED WITH
+   2.2.22

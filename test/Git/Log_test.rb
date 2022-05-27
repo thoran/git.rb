@@ -98,8 +98,8 @@ describe Git::Log do
       subject{Git::Log.parse(log_output)}
 
       let(:log_output) do
-        git_log_output_filename = File.expand_path(File.join(__FILE__, '..', '..', 'fixtures', 'git_log_output.txt'))
-        File.read(git_log_output_filename)
+        log_output_filename = File.expand_path(File.join(__FILE__, '..', '..', 'fixtures', 'log_output.txt'))
+        File.read(log_output_filename)
       end
 
       it "parses out the correct number of commits" do

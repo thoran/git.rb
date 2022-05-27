@@ -1,8 +1,8 @@
 # Ordinal.rb
 # Ordinal
 
-# 20140316
-# 0.2.0
+# 20220527
+# 0.2.1
 
 # Description: This is a collection of methods which relies upon an object having an entries method.
 
@@ -12,6 +12,8 @@
 # Changes since 0.1:
 # 1. - require 'File/self.relative_path' from Ordinal/Array and replaced with require_relative.
 # 2. - require 'File/self.relative_path' from Ordinal/Array and replaced with require_relative.
+# 0/1
+# 3. /ninteenth/nineteenth/
 
 module Ordinal
   
@@ -87,7 +89,7 @@ module Ordinal
     entries[17]
   end
   
-  def ninteenth
+  def nineteenth
     entries[18]
   end
   

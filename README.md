@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ```ruby
 
-require 'Git' # or require each sub-library separately as per below...
+require 'git.rb' # or require each sub-library separately as per below...
 
 require 'Git/Blame'
 
@@ -48,10 +48,10 @@ Git::Branch.default
 # => 'branch_name'
 
 Git::Branch.local
-# => Git::Branch
+# => #<Git::Branch>
 
 Git::Branch.remote
-# => Git::Branch
+# => #<Git::Branch>
 
 Git::Branch.local.all, Git::Branch.all
 # => [#<Git::Branch @name="master">, ...]
