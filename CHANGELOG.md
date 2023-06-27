@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.14.1 (20230628): Fix missing dependencies.
+1. + lib/Array/all_but_first.rb
+2. + lib/Array/all_but_last.rb
+3. + lib/Thoran/Array/AllButFirst/all_but_first.rb
+4. + lib/Thoran/Array/AllButLast/all_but_last.rb
+5. + lib/Thoran/Array/FirstX/firstX.rb
+6. + lib/Thoran/Array/LastX/lastX.rb
+
 ## 0.14.0 (20220527) 
 1. ~ README.md: /require 'Git'/require 'git.rb'/
 2. ~ README.md: + #<> to a couple of commented out indications of output.
