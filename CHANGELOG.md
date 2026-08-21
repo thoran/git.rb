@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.14.2 (20260822): + LICENSE, which the gemspec has claimed without one being present.
+1. + LICENSE: the MIT text, copyright 2020-2026 thoran. The gemspec has declared MIT while the repository carried no licence text at all.
+2. ~ git.rb.gemspec: spec.files was Dir['lib/**/*.rb'] alone, so CHANGELOG.md, Gemfile, LICENSE, README.md, TODO.txt, the gemspec itself and the tests all went unshipped. Now an explicit list.
+3. ~ README.md: + License
+4. ~ Git::VERSION: /0.14.1/0.14.2/
+
 ## 0.14.1 (20230628): Fix missing dependencies.
 1. + lib/Array/all_but_first.rb
 2. + lib/Array/all_but_last.rb

@@ -13,7 +13,16 @@ Gem::Specification.new do |spec|
   spec.homepage = 'http://github.com/thoran/git.rb'
   spec.license = 'MIT'
 
-  spec.files = Dir['lib/**/*.rb']
+  spec.files = [
+    Dir['lib/**/*.rb'],
+    Dir['test/**/*.rb'],
+    'CHANGELOG.md',
+    'Gemfile',
+    'git.rb.gemspec',
+    'LICENSE',
+    'README.md',
+    'TODO.txt',
+  ].flatten
   spec.required_ruby_version = '>= 1.9.3'
 
   spec.add_development_dependency('minitest')
