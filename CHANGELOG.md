@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.14.3 (20260910): ~ lib/Git.rb: + require 'Git/VERSION'; + test/Git/VERSION_test.rb
+1. ~ lib/Git.rb: + `require 'Git/VERSION'`, last among the requires. The file has been present and unreached, so `require 'git.rb'` left Git::VERSION undefined and the gemspec was the only thing loading it.
+2. + test/Git/VERSION_test.rb: that Git::VERSION is a string, that it is three numbers separated by dots, and that it matches the newest entry in the changelog. Modelled on moby's, which is where the convention comes from.
+3. The test loads the library rather than VERSION.rb, which is the whole of its value: run against v0.14.2 it fails with "uninitialized constant Git::VERSION". Nine libraries were in that state and not one of them carried this test, which is how it went unseen.
+4. ~ Git::VERSION: /0.14.2/0.14.3/
+
 ## 0.14.2 (20260822): + LICENSE, which the gemspec has claimed without one being present.
 1. + LICENSE: the MIT text, copyright 2020-2026 thoran. The gemspec has declared MIT while the repository carried no licence text at all.
 2. ~ git.rb.gemspec: spec.files was Dir['lib/**/*.rb'] alone, so CHANGELOG.md, Gemfile, LICENSE, README.md, TODO.txt, the gemspec itself and the tests all went unshipped. Now an explicit list.
