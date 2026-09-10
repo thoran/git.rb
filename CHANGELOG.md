@@ -32,10 +32,8 @@
 15. ~ test/Git/Log_test.rb: Dropped "git_" from the start of the fixture variable names.
 16. test/fixtures/git_blame_output.txt --> test/fixtures/blame_output.txt
 17. test/fixtures/git_log_output.txt --> test/fixtures/log_output.txt
-
-## 0.13.0 (20210730)
-1. ~ README.md to include refrence to Git::Branch.default
-2. ~ README.md to include refrence to Git::Branch.remote
+18. ~ README.md to include reference to Git::Branch.default
+19. ~ README.md to include reference to Git::Branch.remote
 
 ## 0.13.0 (20210702): ~ Git::Blame#find retains all porcelain entries being able to be found
 1. ~ Git::Blame#find, so that it doesn't assign @line_number, thereby retaining access to all porcelain entries
