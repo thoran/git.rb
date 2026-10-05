@@ -1,4 +1,13 @@
-# CHANGELOG
+# git.rb/CHANGELOG
+
+## 0.15.0 (20261006): lib/Git.rb --> lib/git.rb, so that `require 'git.rb'` resolves on a case-sensitive filesystem
+1. lib/Git.rb --> lib/git.rb: the gem is git.rb and the README has said `require 'git.rb'` since 0.14.0, while the file answering it stayed capitalised, so that require raised LoadError anywhere but a case-insensitive filesystem. 0.14.0's item 7, /Git.rb/git.rb/, was the project and not the load file, which is how this sat unnoticed across four releases.
+2. The minor and not the patch: `require 'Git'` resolved on every platform before and resolves only on a case-insensitive filesystem now. The usual shim, lib/Git.rb reduced to `require_relative 'git'`, cannot be checked out beside lib/git.rb on APFS, so the change has no compatible form. A patch release should not be able to break a require.
+3. + test/loading_test.rb: that lib/ carries the lowercase name, and that requiring the gem by name in a fresh process defines Git and Git::VERSION. Dir.entries reports the name as stored, which is how a case-insensitive filesystem is asked the question a case-sensitive one would ask.
+4. ~ test/Git/VERSION_test.rb: /require 'Git'/require 'git.rb'/
+5. ~ git.rb.gemspec: spec.date /2023-06-28/2026-10-06/
+6. ~ CHANGELOG.md: /# CHANGELOG/# git.rb\/CHANGELOG/, and dropped a trailing space from the 0.14.0 heading.
+7. ~ Git::VERSION: /0.14.3/0.15.0/
 
 ## 0.14.3 (20260910): ~ lib/Git.rb: + require 'Git/VERSION'; + test/Git/VERSION_test.rb
 1. ~ lib/Git.rb: + `require 'Git/VERSION'`, last among the requires. The file has been present and unreached, so `require 'git.rb'` left Git::VERSION undefined and the gemspec was the only thing loading it.
@@ -20,7 +29,7 @@
 5. + lib/Thoran/Array/FirstX/firstX.rb
 6. + lib/Thoran/Array/LastX/lastX.rb
 
-## 0.14.0 (20220527) 
+## 0.14.0 (20220527)
 1. ~ README.md: /require 'Git'/require 'git.rb'/
 2. ~ README.md: + #<> to a couple of commented out indications of output.
 3. ~ git.rb.gemspec to include development dependencies.
