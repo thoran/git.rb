@@ -1,8 +1,14 @@
 # git.rb/CHANGELOG
 
+## 0.15.1 (20261005): + the test fixtures to spec.files, so that the shipped suite can run
+1. ~ git.rb.gemspec: + `Dir['test/fixtures/*.txt']` to spec.files. 0.14.2 added `Dir['test/**/*.rb']` meaning to ship the tests, while the four fixtures they read stayed unshipped, so the suite in the gem could not run at all. Built with them in, every test loads and finds its fixture. spec.files now reads the gemspec first, then the globs, then the single files alphabetically, the same 33 files either way.
+2. ~ test/Git/Blame_test.rb, test/Git/Branch_test.rb, test/Git/Remote_test.rb: + `require 'minitest/mock'`, without which #stub was undefined and 14 tests across the three files errored rather than ran. 21 assertions had never executed. The fixtures are what make this reach beyond this repository: with both, the suite is green from an unpacked gem.
+3. ~ CHANGELOG.md: reworded 0.15.0's item 2, which argued the minor from the breakage, by way of platforms and shims and what a patch may not do, where the reason is just that the load file's case changed and the load file is interface.
+4. ~ Git::VERSION: /0.15.0/0.15.1/
+
 ## 0.15.0 (20261006): lib/Git.rb --> lib/git.rb, so that `require 'git.rb'` resolves on a case-sensitive filesystem
 1. lib/Git.rb --> lib/git.rb: the gem is git.rb and the README has said `require 'git.rb'` since 0.14.0, while the file answering it stayed capitalised, so that require raised LoadError anywhere but a case-insensitive filesystem. 0.14.0's item 7, /Git.rb/git.rb/, was the project and not the load file, which is how this sat unnoticed across four releases.
-2. The minor and not the patch: `require 'Git'` resolved on every platform before and resolves only on a case-insensitive filesystem now. The usual shim, lib/Git.rb reduced to `require_relative 'git'`, cannot be checked out beside lib/git.rb on APFS, so the change has no compatible form. A patch release should not be able to break a require.
+2. The minor and not the patch: the load file's case has changed, and the load file is interface. No compatibility shim was possible either way, since lib/Git.rb reduced to `require_relative 'git'` cannot be checked out beside lib/git.rb on APFS.
 3. + test/loading_test.rb: that lib/ carries the lowercase name, and that requiring the gem by name in a fresh process defines Git and Git::VERSION. Dir.entries reports the name as stored, which is how a case-insensitive filesystem is asked the question a case-sensitive one would ask.
 4. ~ test/Git/VERSION_test.rb: /require 'Git'/require 'git.rb'/
 5. ~ git.rb.gemspec: spec.date /2023-06-28/2026-10-06/

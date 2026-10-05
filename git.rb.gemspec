@@ -14,11 +14,12 @@ Gem::Specification.new do |spec|
   spec.license = 'MIT'
 
   spec.files = [
+    'git.rb.gemspec',
     Dir['lib/**/*.rb'],
     Dir['test/**/*.rb'],
+    Dir['test/fixtures/*.txt'],
     'CHANGELOG.md',
     'Gemfile',
-    'git.rb.gemspec',
     'LICENSE',
     'README.md',
     'TODO.txt',
