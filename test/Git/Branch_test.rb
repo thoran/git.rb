@@ -1,14 +1,6 @@
 # test/Git/Branch_test.rb
 
-gem 'minitest'
-gem 'minitest-spec-context'
-
-require 'minitest/autorun'
-require 'minitest-spec-context'
-require 'minitest/mock'
-
-lib_dir = File.expand_path(File.join(__FILE__, '..', '..', '..', 'lib'))
-$LOAD_PATH.unshift(lib_dir) unless $LOAD_PATH.include?(lib_dir)
+require_relative '../helper'
 
 require 'Git/Branch'
 

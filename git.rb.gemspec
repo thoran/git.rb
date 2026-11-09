@@ -3,7 +3,7 @@ require_relative './lib/Git/VERSION'
 Gem::Specification.new do |spec|
   spec.name = 'git.rb'
   spec.version = Git::VERSION
-  spec.date = '2026-10-06'
+  spec.date = '2026-11-09'
 
   spec.summary = "Do git stuff from Ruby."
   spec.description = "Do stuff with git-blame, git-branch, git-log, and git-remote from Ruby."
@@ -21,11 +21,14 @@ Gem::Specification.new do |spec|
     'CHANGELOG.md',
     'Gemfile',
     'LICENSE',
+    'Rakefile',
     'README.md',
     'TODO.txt',
   ].flatten
-  spec.required_ruby_version = '>= 1.9.3'
+  spec.required_ruby_version = '>= 2.1'
 
   spec.add_development_dependency('minitest')
+  spec.add_development_dependency('minitest-mock')
   spec.add_development_dependency('minitest-spec-context')
+  spec.add_development_dependency('rake')
 end

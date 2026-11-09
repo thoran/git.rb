@@ -1,11 +1,11 @@
 # test/loading_test.rb
 
-require 'minitest/autorun'
+require_relative './helper'
 
-require_relative '../lib/git'
+require 'git.rb'
 
-# In its own process, since this one has loaded the file directly and so could
-# not tell what requiring the gem by its own name would bring.
+# In its own process, since this one has loaded the gem already, and requiring
+# it again here would bring nothing.
 describe 'loading' do
   def ruby(source)
     lib = File.expand_path('../lib', __dir__)

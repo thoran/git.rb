@@ -96,7 +96,6 @@ module Git
     end
 
     def entries
-      line_count = 0
       porcelain_entry_string = ''
       entries = []
       blame_array = blame_output.split("\n")
@@ -110,7 +109,6 @@ module Git
         porcelain_entry_string << blame_array[i += 1]
         porcelain_entry_string << "\n"
         entries << PorcelainEntry.new(porcelain_entry_string, line_number += 1).parse
-        line_count = 0
         porcelain_entry_string = ''
       end
       entries

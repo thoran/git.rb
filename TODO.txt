@@ -1,3 +1,4 @@
 1. Enable Git::Log to be able to issue the command `git log` rather than being reliant upon that being done separately, whilst still allowing that to be done separately.
 2. Ensure that the interfaces between each of the sub-libraries are consistent.
 3. Create more fixtures rather than having the sample command output inline. Partially fixed as of 0.14.0.
+4. Rename Git::Log::Commit#hash, which overrides Object#hash and returns a String, so that a commit can be a Hash key or in a Set, and Array#uniq works on commits.
