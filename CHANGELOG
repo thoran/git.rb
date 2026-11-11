@@ -1,5 +1,18 @@
 # git.rb/CHANGELOG
 
+## 20261111
+
+0.15.3: The CHANGELOG and TODO have no extension, and the gemspec no date.
+
+1. /CHANGELOG.md/CHANGELOG/
+2. /TODO.txt/TODO/
+3. ~ TODO: It is headed # TODO.
+4. ~ .gitignore: Besides *.gem, it ignores what Bundler, editors and macOS leave behind, Gemfile.lock among them.
+5. - Gemfile.lock
+6. ~ git.rb.gemspec: Its files list CHANGELOG and TODO. It no longer sets a date, which RubyGems sets when the gem is built.
+7. ~ test/Git/VERSION_test.rb: It reads CHANGELOG.
+8. ~ Git::VERSION: /0.15.2/0.15.3/
+
 ## 20261109
 
 0.15.2: The load file no longer changes $LOAD_PATH; test/helper.rb puts lib/ there.

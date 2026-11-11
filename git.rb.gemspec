@@ -3,7 +3,6 @@ require_relative './lib/Git/VERSION'
 Gem::Specification.new do |spec|
   spec.name = 'git.rb'
   spec.version = Git::VERSION
-  spec.date = '2026-11-09'
 
   spec.summary = "Do git stuff from Ruby."
   spec.description = "Do stuff with git-blame, git-branch, git-log, and git-remote from Ruby."
@@ -18,12 +17,12 @@ Gem::Specification.new do |spec|
     Dir['lib/**/*.rb'],
     Dir['test/**/*.rb'],
     Dir['test/fixtures/*.txt'],
-    'CHANGELOG.md',
+    'CHANGELOG',
     'Gemfile',
     'LICENSE',
     'Rakefile',
     'README.md',
-    'TODO.txt',
+    'TODO',
   ].flatten
   spec.required_ruby_version = '>= 2.1'
 
