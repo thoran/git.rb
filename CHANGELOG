@@ -2,6 +2,14 @@
 
 ## 20261111
 
+0.15.4: Git::Branch.remote.all gives each branch its remote.
+
+1. ~ Git::Branch.all: Each remote branch has its remote, and the remote's HEAD is left out. It read --remote after command_string had cleared it, so each came back with no remote and the remote in its name.
+2. ~ Git::Branch#merged?: A remote branch is looked for among the merged ones as remote/name.
+3. + test/fixtures/remote_branch_output.txt
+4. ~ test/Git/Branch_test.rb: Git::Branch.remote.all, and #merged? for a remote branch, are tested.
+5. ~ Git::VERSION: /0.15.3/0.15.4/
+
 0.15.3: The CHANGELOG and TODO have no extension, and the gemspec no date.
 
 1. /CHANGELOG.md/CHANGELOG/

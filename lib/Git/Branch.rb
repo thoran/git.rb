@@ -74,18 +74,19 @@ module Git
         `#{command_string}`
       end
 
+      # Whether --remote was asked for is read before branch_output, whose command_string clears the switches. A remote's HEAD, as origin/HEAD -> origin/master, names another branch and is left out.
       def all
-        result = branch_output.split("\n").collect do |branch|
-          if @switches.include?('--remote')
+        remote_branches = @switches.include?('--remote')
+        branch_output.split("\n").reject{|branch| branch.include?(' -> ')}.collect do |branch|
+          if remote_branches
             branch_parts = branch.split('/')
-            remote, branch_name = branch_parts.first.sub('*', '').strip, branch_parts.all_but_first.join('/')
-            new(branch_name, remote: remote)
+            remote_name, branch_name = branch_parts.first.sub('*', '').strip, branch_parts.all_but_first.join('/')
+            new(branch_name, remote: remote_name)
           else
             branch_name = branch.sub('*', '').strip
             new(branch_name)
           end
         end
-        result
       end
 
       def current
@@ -110,7 +111,7 @@ module Git
 
     def merged?
       if @remote
-        self.class.remote.merged.all.collect{|branch| branch.name}.include?(@remote + '/' + @name)
+        self.class.remote.merged.all.collect{|branch| branch.to_s}.include?(to_s)
       else
         self.class.merged.all.collect{|branch| branch.name}.include?(@name)
       end
