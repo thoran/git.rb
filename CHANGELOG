@@ -2,6 +2,14 @@
 
 ## 20261111
 
+0.15.5: ~ Git::Blame: Filenames with spaces work.
+
+1. + Git::Blame#argv: The command as an argument list. It is private.
+2. ~ Git::Blame#command_string: It is the argv, shell-escaped.
+3. ~ Git::Blame#blame_output: It runs the argv with IO.popen. A filename with a space had been split in two, and entries came back empty.
+4. ~ test/Git/Blame_test.rb: A filename with a space is tested.
+5. ~ Git::VERSION: /0.15.4/0.15.5/
+
 0.15.4: Git::Branch.remote.all gives each branch its remote.
 
 1. ~ Git::Branch.all: Each remote branch has its remote, and the remote's HEAD is left out. It read --remote after command_string had cleared it, so each came back with no remote and the remote in its name.

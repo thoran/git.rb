@@ -23,6 +23,7 @@
 
 require 'Array/all_but_first'
 require 'Array/all_but_last'
+require 'shellwords'
 
 module Git
   class Blame
@@ -84,15 +85,11 @@ module Git
     end
 
     def command_string
-      if @line_number
-        "git --no-pager blame -L #{@line_number},#{@line_number} #{@filename} --line-porcelain"
-      else
-        "git --no-pager blame #{@filename} --line-porcelain"
-      end
+      argv.shelljoin
     end
 
     def blame_output
-      `#{command_string}`
+      IO.popen(argv, &:read)
     end
 
     def entries
@@ -116,6 +113,16 @@ module Git
 
     def find(line_number)
       entries.detect{|entry| entry.line_number == line_number}
+    end
+
+    private
+
+    def argv
+      if @line_number
+        ['git', '--no-pager', 'blame', '-L', "#{@line_number},#{@line_number}", @filename, '--line-porcelain']
+      else
+        ['git', '--no-pager', 'blame', @filename, '--line-porcelain']
+      end
     end
 
   end

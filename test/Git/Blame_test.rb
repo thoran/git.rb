@@ -33,6 +33,32 @@ describe Git::Blame do
       end
 
     end
+
+    context "a filename with a space" do
+      subject{Git::Blame.new('path/to/a file').command_string}
+
+      it "escapes the space" do
+        expect(subject).must_equal "git --no-pager blame path/to/a\\ file --line-porcelain"
+      end
+    end
+  end
+
+  describe "#blame_output" do
+    it "runs git blame without a shell, the filename as one argument" do
+      commands = []
+      IO.stub(:popen, ->(command, &block){commands << command; ''}) do
+        Git::Blame.new('path/to/a file').blame_output
+      end
+      expect(commands).must_equal [['git', '--no-pager', 'blame', 'path/to/a file', '--line-porcelain']]
+    end
+
+    it "runs git blame for one line, given a line number" do
+      commands = []
+      IO.stub(:popen, ->(command, &block){commands << command; ''}) do
+        Git::Blame.new('path/to/a file', 100).blame_output
+      end
+      expect(commands).must_equal [['git', '--no-pager', 'blame', '-L', '100,100', 'path/to/a file', '--line-porcelain']]
+    end
   end
 
   describe "#entries" do
